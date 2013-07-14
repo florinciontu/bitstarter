@@ -3,8 +3,14 @@ var fs=require('fs')
 var app = express.createServer(express.logger());
 
 app.get('/', function(request, response) {
-  buffer=fs.readFileSync("index.html");
-  response.send(buffer.toString("utf-8");
+  try{
+  buffer=fs.readFileSync("index.html","utf-8");
+  }catch(e){
+  console.log("File not found");
+  }
+  text=buffer.toString("utf-8");
+  console.log(text); 
+  response.send(text);
 });
 
 var port = process.env.PORT || 5000;
