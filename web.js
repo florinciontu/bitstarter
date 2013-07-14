@@ -1,6 +1,6 @@
 var express = require('express');
 var fs=require('fs')
-var app = express.();
+var app = express();
 
 app.get('/', function(request, response) {
   try{
