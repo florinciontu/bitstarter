@@ -1,8 +1,9 @@
 var express = require('express');
 var fs=require('fs')
-var app = express();
+var app = express.createServer(express.logger());
 
 app.get('/', function(request, response) {
+  console.log("trying to read from file");
   try{
   buffer=fs.readFileSync("index.html","utf-8");
   }catch(e){
